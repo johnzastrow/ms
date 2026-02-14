@@ -1,6 +1,6 @@
 # Next Steps: Improving and Expanding the Image Classification System
 
-## Section 1: Improving What the Notebook Already Does
+## Stage 1: Improving What the Notebook Already Does
 
 These changes make the existing system more robust, accurate, and maintainable without changing its scope.
 
@@ -120,7 +120,7 @@ The agents have no error handling. If Kafka is down, a message is malformed, or 
 
 ---
 
-## Section 2: New Capabilities and Concepts
+## Stage 2: New Capabilities and Concepts
 
 These enhancements extend the system beyond its current scope to demonstrate additional concepts in multi-agent AI, MLOps, and distributed systems.
 
@@ -221,9 +221,9 @@ Save all classification results to structured files and perform statistical anal
 
 ---
 
-## Section 3: Implementation Guide
+## Stage 3: Implementation Guide
 
-### 3.1 Fix the ResNet Bug and Add Augmentation (Sections 1.1, 1.2)
+### 3.1 Fix the ResNet Bug and Add Augmentation (Stages 1.1, 1.2)
 
 In the `build_resnet_model()` function (Step 4), fix the data flow and add augmentation layers:
 
@@ -257,7 +257,7 @@ model = models.Sequential([
 ])
 ```
 
-### 3.2 Add Confusion Matrix and Training Plots (Sections 1.4, 1.5)
+### 3.2 Add Confusion Matrix and Training Plots (Stages 1.4, 1.5)
 
 Add a new cell after each model's training cell:
 
@@ -301,7 +301,7 @@ This requires adding `scikit-learn` and `seaborn` to the pip install cell:
 pip install scikit-learn seaborn
 ```
 
-### 3.3 Add Model Saving and Loading (Section 1.8)
+### 3.3 Add Model Saving and Loading (Stage 1.8)
 
 Replace the commented-out Google Drive save cell (cell 9) with:
 
@@ -334,7 +334,7 @@ else:
     # ... training code ...
 ```
 
-### 3.4 Implement Soft Voting Ensemble (Section 2.2)
+### 3.4 Implement Soft Voting Ensemble (Stage 2.2)
 
 Modify the Kafka message schema to include the full softmax probability vector, not just the top prediction:
 
@@ -374,7 +374,7 @@ for img_id, results in comparison_map.items():
             brokered_total_correct += 1
 ```
 
-### 3.5 Add a Transfer Learning Agent (Section 2.1)
+### 3.5 Add a Transfer Learning Agent (Stage 2.1)
 
 Add a new cell after Step 4 to build a MobileNetV2-based model:
 
@@ -438,7 +438,7 @@ MOBILENET_RESPONSE_TOPIC = 'mobilenet_classifications'
 
 Update the Judge to consume from three response topics instead of two.
 
-### 3.6 Add a Live Dashboard with Streamlit (Section 2.3)
+### 3.6 Add a Live Dashboard with Streamlit (Stage 2.3)
 
 Create a separate file `dashboard.py`:
 
@@ -502,7 +502,7 @@ Run with: `streamlit run dashboard.py`
 
 This requires: `pip install streamlit plotly`
 
-### 3.7 Containerize with Docker Compose (Section 2.6)
+### 3.7 Containerize with Docker Compose (Stage 2.6)
 
 Create a `docker-compose.yml` at the project root:
 
@@ -582,7 +582,7 @@ Run with:
 docker compose up -d
 ```
 
-### 3.8 Export Results and Add Statistical Tests (Section 2.10)
+### 3.8 Export Results and Add Statistical Tests (Stage 2.10)
 
 Add a cell after the visualization step:
 
