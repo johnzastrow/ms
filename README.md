@@ -1,6 +1,25 @@
 # Agentic AI for Image Classification
 
-A multi-agent system that uses Apache Kafka as a message broker to compare two deep learning models (CNN and ResNet) classifying CIFAR-10 images. A Judge agent orchestrates the comparison and selects the best prediction based on confidence scores.
+## Introduction
+
+This project explores whether multiple AI agents working together can classify images more accurately than any single model acting alone. Rather than building one monolithic classifier, we take a distributed approach: independent agents each run their own deep learning model, communicate through a message broker, and a Judge agent arbitrates their results.
+
+### Objective
+
+Build a multi-agent system that demonstrates:
+
+1. **Agentic AI design** -- Autonomous agents that receive tasks, perform inference, and report results without centralized control
+2. **Publish/subscribe messaging** -- Agents communicate exclusively through Apache Kafka topics, decoupling producers from consumers
+3. **Model comparison** -- Two fundamentally different neural network architectures (CNN and ResNet) classify the same images, revealing how architecture choices affect performance
+4. **Brokered decision-making** -- A Judge agent aggregates predictions from multiple classifiers and selects the best answer, testing whether collaboration outperforms individual models
+
+### Goals
+
+- Train a custom CNN and a ResNet-style model on the CIFAR-10 dataset (10 classes, 32x32 color images)
+- Wire both models into Kafka-based agents that consume classification requests and produce predictions
+- Run a Judge agent that submits 500 test images, collects responses from both classifiers, and picks the highest-confidence prediction as the "brokered" result
+- Visualize and compare the accuracy of each individual agent against the brokered ensemble result
+- Demonstrate that the multi-agent architecture is extensible -- new models can be added as agents without modifying existing ones
 
 ## Architecture
 
