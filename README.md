@@ -276,7 +276,9 @@ The notebook was originally built for Google Colab. To run on a local or VPS env
 
 | File | Description |
 |---|---|
-| `image_class.ipynb` | Main notebook -- trains models, runs agents, visualizes results |
+| `image_class.ipynb` | Original notebook -- trains 2 models, runs agents, visualizes results |
+| `stage1_image_class.ipynb` | Stage 1 -- bug fixes, augmentation, confusion matrices, model save/load, improved Judge |
+| `stage2_image_class.ipynb` | Stage 2 -- adds MobileNetV2 agent, 3-agent soft voting ensemble, CSV export, statistical tests |
 | [`RUN_ON_VPS.md`](RUN_ON_VPS.md) | Deployment guide for Ubuntu 24.04 (CPU and GPU) |
 | [`NEXT_STEPS.md`](NEXT_STEPS.md) | Improvement plans, new capabilities, and implementation guide |
 | [`MARIMO.md`](MARIMO.md) | Evaluating Marimo as a Jupyter alternative for this project |
